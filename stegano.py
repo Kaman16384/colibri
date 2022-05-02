@@ -24,10 +24,10 @@ def stegano(file, message, save):
     for k in range(len(binaire)):
         if binaire[k] == '1':
             if fc.parite(array[k]):
-                array[k] += 1         # Valeur à mettre à 255 pour voir les modifs sur la photo
+                array[k] += 1  # Valeur à mettre à 255 pour voir les modifs
         else:
             if fc.parite(array[k]) is False:
-                array[k] -= 1         # Valeur à mettre à 255 pour voir les modifs sur la photo
+                array[k] -= 1  # Valeur à mettre à 255 pour voir les modifs
     for k in range(len(binaire), len(binaire) + 16):
         if fc.parite(array[k]):
             array[k] += 1
@@ -55,8 +55,8 @@ def unstegano(file):
 
 def stegpict(im1, im2, save):
     ''' Camoufle im2 dans im1 et sauvegarde le résultat dans save. '''
-    secret = open(im2, "rb") # Ouverture en binaire et lecture seul de im2
-    payload = secret.read() # Chargement du fichier dans payload (buffer)
+    secret = open(im2, "rb")  # Ouverture en binaire et lecture seul de im2
+    payload = secret.read()  # Chargement du fichier dans payload (buffer)
     secret.close()
     payload = b64encode(payload)
 
